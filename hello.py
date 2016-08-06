@@ -1,5 +1,5 @@
 #!/usr/bin/python 
-
+##
 
 def foo():
 	f = open('/var/log/kern.log')
