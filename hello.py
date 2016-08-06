@@ -5,7 +5,7 @@ def foo():
 	f = open('/var/log/kern.log')
 	lines = f.readlines()
 	for line in lines:
-		print int(line.split()[2].split(':')[2]) * 10
+		print int(line.split()[2].split(':')[2]) * 100
 		
 
 
