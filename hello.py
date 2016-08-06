@@ -1,6 +1,6 @@
 #!/usr/bin/python 
 
-
+# Guru comments
 def foo():
 	f = open('/var/log/kern.log')
 	lines = f.readlines()
