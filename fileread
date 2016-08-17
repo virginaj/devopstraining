@@ -1,0 +1,7 @@
+#!/usr/bin/python
+f=open('/home/messages')
+logfile=f.read()
+logfile.split('\n')
+for line in logfile.split('\n'):
+	if line.find('Aug 17 10:02:54 jenkins2 ansible-vsphere_guest'):
+		print(line)
