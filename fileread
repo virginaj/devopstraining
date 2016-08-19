@@ -1,7 +1,23 @@
 #!/usr/bin/python
-f=open('/home/messages')
+import time
+time.sleep(1)
+print (" **Begining of my Assignment, please Enjoy**")
+import time
+time.sleep(2)
+f=open("/home/messages")
 logfile=f.read()
 logfile.split('\n')
 for line in logfile.split('\n'):
 	if line.find('Aug 17 10:02:54 jenkins2 ansible-vsphere_guest'):
 		print(line)
+for line in logfile.split('\n'):
+our_str = 'line' 
+ 
+new_str = our_str.replace('jenkins2', 'Godfred')
+print(new_str)
+import time
+time.sleep(2)
+print (" ******End of my Assignment*******")
+print ("Thank You ALL for watching")
+print ("Later")
+
