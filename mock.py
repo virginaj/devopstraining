@@ -10,8 +10,16 @@ import paramiko
 import cmd
 
 
-ssh=paramiko.SSHClient()
-ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-ssh.connect('192.168.0.13', username='ahsan', password='ahsankhan')
-stdin, stdout, stderr = ssh.exec_command("uname -a && /sbin/ifconfig -a | grep 192.168.0")
-print stdout.read()
+
+def clt():
+	l=['localhost']
+	ssh=paramiko.SSHClient()
+	ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+	ssh.connect( 'l' , username='ahsan', password='ahsankhan')
+	ins, out, err = ssh.exec_command("uname -a && /sbin/ifconfig -a | grep 192.168.0")
+	ab=out.read()
+	print ab.split('\n')
+
+	for line in ab.split('\n\n'):
+		print ('\n')
+clt()
