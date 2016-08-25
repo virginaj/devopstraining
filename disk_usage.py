@@ -1,4 +1,4 @@
-asdasimport paramiko
+import paramiko
 
 server_list=['localhost']
 mount_point = '/dev/mapper/fedora-root'
