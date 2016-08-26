@@ -35,7 +35,7 @@ while True:
         sys.exit(1)
 
 # Send the command (non-blocking)
-stdin, stdout, stderr = ssh.exec_command("my_long_command --arg 1 --arg 2")
+stdin, stdout, stderr = ssh.exec_command("hostname -f")
 
 # Wait for the command to terminate
 while not stdout.channel.exit_status_ready():
