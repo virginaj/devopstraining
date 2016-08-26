@@ -7,19 +7,15 @@
 
 
 import paramiko
-import cmd
+import requests
 
 
 
 def clt():
-	l=['localhost']
 	ssh=paramiko.SSHClient()
 	ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
-	ssh.connect( 'l' , username='ahsan', password='ahsankhan')
-	ins, out, err = ssh.exec_command("uname -a && /sbin/ifconfig -a | grep 192.168.0")
-	ab=out.read()
-	print ab.split('\n')
-
-	for line in ab.split('\n\n'):
-		print ('\n')
+	ssh.connect( '192.168.0.13' , username='ahsan', password='ahsankhan')
+	ins, out, err = ssh.exec_command("mkdir /opt/google ; cd /opt/google && wget http://www.google.com" )
+	
+	
 clt()
