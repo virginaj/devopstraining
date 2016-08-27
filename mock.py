@@ -16,6 +16,7 @@ loc='/home/index.html'
 def google(url,loc):
 	
 	r=requests.get(url)
+	return r.content
 	#print r.status_code
 	file=open(loc, 'wb')
 	o=r.status_code
@@ -26,7 +27,7 @@ def google(url,loc):
 			print "Code Faulty"
 			return
 
-google(url,loc)
+
 
 def clt():
 	ssh=paramiko.SSHClient()
@@ -35,10 +36,12 @@ def clt():
 	ins, out, err = ssh.exec_command("mkdir /opt/google" )
 	
 	e=err.read()
-	if e == []:
-		print "Permission is good"
-	else:
-		print e
+	if e is not None:
+		return "Error"
+	g = google(url,loc)
+	cmd = "cat %s << EOD" % g
+	ssh.exe_command(cmd)
+	ssh.exec_command("cd /opt/google; wget google.com")
 	
 clt()
 
