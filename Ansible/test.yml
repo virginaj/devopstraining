@@ -1,0 +1,11 @@
+---
+ - hosts: ansible.example.com
+   user: root
+   vars: 
+    motd_hello: "Welcome to HomeLAB\nEnjoy !\n"
+   tasks:
+    - name: sample
+      copy:
+       dest: /etc/motd
+       content: "{{ motd_hello }}"
+

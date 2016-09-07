@@ -1,0 +1,7 @@
+---
+  - hosts: ansible.example.com  
+    remote_user: root 
+    tasks:
+    - file: path=/etc/foo.conf state=touch mode="u=rw,g=r,o=r"
+    - file: path=/etc/foo.conf owner=root group=root mode=0644
+    - file: src=/etc/foo.conf dest=/tmp/foo.ln owner=root group=root state=link
