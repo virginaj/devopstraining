@@ -24,4 +24,6 @@
       user: name=james generate_ssh_key=yes ssh_key_bits=2048 ssh_key_file=.ssh/id_rsa
     - file: path=/etc/foo.conf state=touch mode="u=rw,g=r,o=r"
     - name: using Jinja2
-      template: src=jinja.j2 dest=/tmp
+      template: src=jinja.j2 dest=/var/www/html/index.html
+    - name: start Web Services
+      service: name=httpd state=started
