@@ -6,6 +6,8 @@
       epel: "epel-release"
       ansible: "ansible.noarch"
       apache: "httpd"
+      what: "This Is Jinja"
+
     tasks: 
     - name: Disable SELinux
       shell: setenforce 0
@@ -17,7 +19,9 @@
       yum: pkg={{ ansible }} state=latest
     - name: Installing Latest version of apache   
       yum: pkg={{ apache }} state=latest
-   - name: Create dummy user
+    - name: Create dummy user
       user: name=james shell=/bin/bash append=yes
       user: name=james generate_ssh_key=yes ssh_key_bits=2048 ssh_key_file=.ssh/id_rsa
     - file: path=/etc/foo.conf state=touch mode="u=rw,g=r,o=r"
+    - name: using Jinja2
+      template: src=jinja.j2 dest=/tmp
