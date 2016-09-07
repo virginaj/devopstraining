@@ -1,0 +1,18 @@
+---
+- name: ping
+  hosts: localhost
+  remote_user: root
+  vars:
+   myname: Godfred
+   mydict:
+    - {fruit1: "apple"} 
+    - {fruit2: "mango"} 
+    - {fruit3: "banana"} 
+   mylist:
+    - list1 
+    - list2 
+    - list3 
+
+  tasks:
+  - name: copy a File 
+    template: src=/home/ggmock.j2 dest=/tmp/ggmock
