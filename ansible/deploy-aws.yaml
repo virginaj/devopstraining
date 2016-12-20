@@ -1,0 +1,23 @@
+---
+  # Talk to all hosts just so we can learn about them...
+- name: Create a sandbox instance
+  hosts: localhost
+  gather_facts: False
+  vars:
+    keypair: my_keypair
+    instance_type: t2.micro
+    image: ami-d1315fb1
+    region: us-west-1
+  tasks:
+    - name: Launch instance
+      ec2:
+         key_name: "{{ keypair }}"
+         group: default
+         instance_type: "{{ instance_type }}"
+         image: "{{ image }}"
+         wait: true
+         region: "{{ region }}"
+      register: ec2
+    - name: Print all ec2 variables
+      debug: var=ec2
+ 
