@@ -1,5 +1,5 @@
 #!/usr/bin/python 
-iadskjhaskjdfhakljshflkajsdfhlkajshd
+
 
 def foo():
 	f = open('/var/log/kern.log')
@@ -9,17 +9,14 @@ def foo():
 		
 
 
-def bar():
-	print("World")
+def hello_function():
+	print("Hello World!")
 
+def variable_function(myvar):
+	var1 = "test"
+	print( var1 + myvar)
+	return var1
 
-''' 
-###  First Int
-
-i = 10
-st = "Helo"
-l = ['a','b','c']
-dic= {'language':'Python', 'editor':'vi'}
-'''
-foo()
-bar()
+hello_function()
+var1 = variable_function("working")
+print(var1)

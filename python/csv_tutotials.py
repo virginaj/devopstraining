@@ -27,21 +27,21 @@ def write_simple(input_file,output_file):
         for line in lines:
             sp.writerow(line.strip().split(','))
 
-def read_modify_write(csv_file,'output.csv','Running'):
+def read_modify_write(input_file,output_file):
     with open(input_file) as csvfile:
         lines = csvfile.readlines()
-
-    index=lines[0].find('Running')
-    running = []
-    for line in lines[1:]:
-        running.append(float(line[index])*100)
 
     with open(output_file,'w') as csvfile:
         sp = csv.writer(csvfile, delimiter=',')
         for line in lines:
-            sp.writerow(line.strip().split(','))
+            #print(line.split(',')[0])
+            try:
+                running = float(line.split(',')[0]) * 100
+            except:
+                continue
+            sp.writerow([str(running)] + line.strip().split(',')[1:])
 
 if __name__ == '__main__':
     #read_using_csv_module(csv_file)
-    write_simple(csv_file,'output.csv')
-    read_modify_write(csv_file,'output.csv','Running')
+    #write_simple(csv_file,'output.csv')
+    read_modify_write(csv_file,'output.csv')
