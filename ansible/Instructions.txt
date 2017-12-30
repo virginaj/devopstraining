@@ -1,0 +1,19 @@
+
+## Add SSH key 
+ssh-agent bash
+ssh-add .vagrant/machines/machine1/virtualbox/private_key
+
+## Test Ad hoc commands
+
+ansible machine1 -i inventory/hosts -u vagrant -a "hostname -a" 
+
+ansible machine1 -i inventory/hosts -u vagrant -m copy -a "src=inventory/hosts dest=/tmp/hosts"
+
+
+ansible machine1 -i inventory/hosts -u vagrant -a "cat /tmp/hosts" 
+
+ansible machine1 -i inventory/hosts -u vagrant -b -m yum -a "name=httpd state=present"
+
+ansible machine1 -i inventory/hosts -u vagrant -b -m yum -a "name=git state=present"
+
+ansible machine1 -i inventory/hosts -u vagrant -b -m git -a "repo=https://github.com/becloudready/prometheus_monitoring.git dest=/tmp version=HEAD"
