@@ -1,6 +1,12 @@
 ---
 - hosts: all
   gather_facts: true
+  remote_user: vagrant
   tasks:
-  - command: hostname -f
+   - name: Run some random commands
+     command: hostname -f
+   - name: test the connection
+     ping:
+     remote_user: vagrant
+     
   - yum: pkg=httpd state=installed
