@@ -8,5 +8,5 @@
    - name: test the connection
      ping:
      remote_user: vagrant
-     
-  - yum: pkg=httpd state=installed
+   - debug: var=variable_name  
+   - yum: pkg=httpd state=installed
