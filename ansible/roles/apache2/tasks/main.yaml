@@ -3,18 +3,21 @@
   yum:
     name: httpd
     state: latest
+
+
 - name: write the apache config file
   template:
-    src: /srv/httpd.j2
-    dest: /etc/httpd.conf
+    src: httpd.conf.j2
+    dest: /etc/httpd/conf/httpd.conf
   notify:
   - restart apache
+
+
 - name: ensure apache is running
   service:
     name: httpd
     state: started
-handlers:
-  - name: restart apache
-    service:
-      name: httpd
-      state: restarted
+
+
+- name: force all notified handlers to run at this point
+  meta: flush_handlers
