@@ -10,3 +10,15 @@
      remote_user: vagrant
    - debug: var=variable_name  
    - yum: pkg=httpd state=installed
+
+- hosts: webserver
+  gather_facts: true
+  remote_user: vagrant
+  tasks:
+   - name: Run some random commands
+     command: hostname -f
+   - name: test the connection
+     ping:
+     remote_user: vagrant
+   - debug: var=variable_name  
+   - yum: pkg=httpd state=installed
