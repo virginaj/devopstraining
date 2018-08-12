@@ -2,3 +2,9 @@
   hosts: webserver
   roles:
     - git
+
+- name: Installing docker MSSQL
+  hosts: mssql
+  roles:
+    - docker
+    - mssql

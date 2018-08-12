@@ -1,0 +1,52 @@
+---
+- name: Remove old repo and pakcages
+  yum:
+   name: docker-engine docker-engine-selinux
+   state: absent
+
+- name: Copy the Docker CE repo
+  copy:
+    src: docker-ce.repo
+    dest: /etc/yum.repos.d/docker-ce.repo
+  become: true
+
+- name: Install the Centos keys
+  copy:
+    src: RPM-GPG-KEY-CentOS-7
+    dest: /etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+
+- name: Prequisite installation
+  yum: disablerepo=* enablerepo=centos-base,centos-extras,docker-ce-stable name=docker-ce,docker-python
+  become: true
+
+- name: Create target directory
+  file:
+    path: /etc/systemd/system/docker.service.d/
+    state: directory
+    mode: 0755
+  become: true
+
+- name: Ensure group "docker" exists
+  group:
+    name: docker
+    state: present
+
+
+- name: configure docker systemd service
+  template:
+    src: docker.service.j2
+    dest: /etc/systemd/system/docker.service
+
+
+- name: Start docker service
+  command: systemctl start docker.service
+  ignore_errors: true
+  become: true
+
+- name: Setup docker service
+  service: name=docker state=started enabled=true
+  become: true
+
+- name: remove unneeded docker stuff
+  command: docker system prune -a -f
+  become: true

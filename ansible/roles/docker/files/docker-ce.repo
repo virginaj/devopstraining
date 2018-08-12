@@ -1,0 +1,24 @@
+[docker-ce-stable]
+name=Docker CE Stable - $basearch
+baseurl=https://download-stage.docker.com/linux/centos/7/$basearch/stable
+enabled=1
+gpgcheck=1
+gpgkey=https://download-stage.docker.com/linux/centos/gpg
+
+
+[centos-base]
+name=CentOS-$releasever - Base
+baseurl=http://mirror.centos.org/centos/7/os/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+
+enable=1
+#additional packages that may be useful
+
+[centos-extras]
+name=CentOS-$releasever - Extras
+baseurl=http://mirror.centos.org/centos/7/extras/$basearch/
+gpgcheck=1
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7
+
+enable=1
