@@ -17,4 +17,4 @@
   roles:
     - ntp
     - httpd
-    - deploy_static_content
+    - deploy_dynamic_content
