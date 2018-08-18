@@ -3,11 +3,11 @@
   become: true
   tasks:
   - name: Install nginx
-    apt: name=nginx state=present
+    yum: name=nginx state=present
   - name: Start nginx
     service: name=nginx state=started enabled=yes
 - hosts: appserver
   become: true
   tasks:
   - name: Install default-jdk
-    apt: name=default-jdk state=present
+    yum: name=java-1.8.0-openjdk state=present
