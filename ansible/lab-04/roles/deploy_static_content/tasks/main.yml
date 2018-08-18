@@ -1,6 +1,6 @@
 ---
 - name: Install unzip
-  apt: name=unzip state=present
+  yum: name=unzip state=present
 
 - name: Get static content
   shell: ls -1 /var/www/html
