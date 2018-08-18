@@ -10,13 +10,13 @@ ansible ansible-node  -i inventory/ansible-nodes -a "mkdir /home/ec2-user/testdi
 
 
 
-ansible machine1 -i inventory/hosts -m copy -a "src=inventory/hosts dest=/tmp/hosts"
+ansible ansible-node -i inventory/ansible-nodes -m copy -a "src=inventory/ansible-nodes dest=/tmp/ansible-nodes"
 
 
-ansible machine1 -i inventory/hosts -a "cat /tmp/hosts" 
+ansible ansible-node -i inventory/ansible-nodes -a "cat /tmp/ansible-nodes" 
 
-ansible machine1 -i inventory/hosts -b -m yum -a "name=httpd state=present"
+ansible ansible-node -i inventory/ansible-nodes -b -m yum -a "name=httpd state=present"
 
-ansible machine1 -i inventory/hosts -b -m yum -a "name=git state=present"
+ansible ansible-node -i inventory/ansible-nodes -b -m yum -a "name=git state=present"
 
-ansible machine1 -i inventory/hosts -b -m git -a "repo=https://github.com/becloudready/prometheus_monitoring.git dest=/tmp version=HEAD"
+ansible ansible-node -i inventory/ansible-nodes -b -m git -a "repo=https://github.com/becloudready/prometheus_monitoring.git dest=/tmp version=HEAD"
