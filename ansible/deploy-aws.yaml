@@ -4,7 +4,7 @@
   hosts: localhost
   gather_facts: False
   vars:
-    keypair: my_keypair
+    keypair: mnuzQWILv7a/Z4nZZFeLTmx/xFTcgH/INhY5SeKi
     instance_type: t2.micro
     image: ami-d1315fb1
     region: us-west-1
