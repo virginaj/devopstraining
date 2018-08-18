@@ -1,0 +1,16 @@
+---
+- name: Install httpd server
+  yum: name=httpd state=present
+
+- name: Start nginx
+  service: name=httpd state=started enabled=yes
+
+- name: Update httpd default config
+  copy: src=default.conf dest=/etc/httpd/sites-enabled/default
+  notify:
+    - Test httpd configuration
+    - Reload httpd configuration
+
+- name: Flush handlers
+  meta: flush_handlers
+
