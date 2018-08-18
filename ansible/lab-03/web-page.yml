@@ -1,0 +1,10 @@
+---
+- hosts: webserver
+  become: true
+  tasks:
+  - name: Install Apache httpd
+    apt: name=httpd state=present
+  - name: Copy the index.html file web dir
+    copy: index.html /var/www/html/index.htmlß
+  - name: Start nginx
+    service: name=nginx state=started enabled=yes
