@@ -3,4 +3,4 @@
   yum: name=ntp state=present
 
 - name: Start ntp service
-  service: name=ntp state=started enabled=yes
+  service: name=ntpd state=started enabled=yes
