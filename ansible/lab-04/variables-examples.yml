@@ -5,7 +5,9 @@
     service: name=httpd state=stopped
   - name: Remove httpd package
     yum: name=httpd state=removed
-- hosts: webservers
+
+
+- hosts: webserver
   become: true
 
   vars_files:
