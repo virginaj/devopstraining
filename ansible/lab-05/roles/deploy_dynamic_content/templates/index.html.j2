@@ -3,8 +3,8 @@
     <title>Ansible-http: {{ display_message }}</title>
   </head>
   <body>
-    <h1>{% for mounts in ansible_mounts %}
-Mountpoint: {{ mounts }}
+    <h1>{% for facts in ansible_facts %}
+Ansible_facts: { facts }
 {% endfor %}</h1>
   </body>
 </html>
