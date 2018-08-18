@@ -22,12 +22,12 @@
 
     - debug:
         var: result
-        verbosity: 2
+        
 
     - name: Display all variables/facts known for a host
       debug:
         var: hostvars[inventory_hostname]
-        verbosity: 4
+        
 
 - hosts: webserver
   become: true
