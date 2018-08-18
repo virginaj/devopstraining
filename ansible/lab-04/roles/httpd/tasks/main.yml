@@ -2,11 +2,11 @@
 - name: Install httpd server
   yum: name=httpd state=present
 
-- name: Start nginx
+- name: Start httpd
   service: name=httpd state=started enabled=yes
 
 - name: Update httpd default config
-  copy: src=default.conf dest=/etc/httpd/sites-enabled/default
+  copy: src=httpd.conf dest=/etc/httpd/conf/
   notify:
     - Test httpd configuration
     - Reload httpd configuration
