@@ -11,4 +11,4 @@
   with_items: "{{content.stdout_lines}}"
 
 - name: Deploy Dynamic content
-  template: src=index.html.j2 dest=/var/www/html
+  template: src=index.html.j2 dest=/var/www/html/index.html
