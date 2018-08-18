@@ -1,19 +1,22 @@
 
-## Add SSH key 
-ssh-agent bash
-ssh-add .vagrant/machines/machine1/virtualbox/private_key
 
-## Test Ad hoc commands
+## Test Ad hoc commands and ssh command comparison
 
-ansible machine1 -i inventory/hosts -u vagrant -a "hostname -a" 
+ssh ansible-node "hostname -f"
+ansible ansible-node  -i inventory/ansible-nodes -a "hostname -f"
 
-ansible machine1 -i inventory/hosts -u vagrant -m copy -a "src=inventory/hosts dest=/tmp/hosts"
+ssh ansible-node "mkdir /home/ec2-user/mytestdir"
+ansible ansible-node  -i inventory/ansible-nodes -a "mkdir /home/ec2-user/testdirAnsible"
 
 
-ansible machine1 -i inventory/hosts -u vagrant -a "cat /tmp/hosts" 
 
-ansible machine1 -i inventory/hosts -u vagrant -b -m yum -a "name=httpd state=present"
+ansible machine1 -i inventory/hosts -m copy -a "src=inventory/hosts dest=/tmp/hosts"
 
-ansible machine1 -i inventory/hosts -u vagrant -b -m yum -a "name=git state=present"
 
-ansible machine1 -i inventory/hosts -u vagrant -b -m git -a "repo=https://github.com/becloudready/prometheus_monitoring.git dest=/tmp version=HEAD"
+ansible machine1 -i inventory/hosts -a "cat /tmp/hosts" 
+
+ansible machine1 -i inventory/hosts -b -m yum -a "name=httpd state=present"
+
+ansible machine1 -i inventory/hosts -b -m yum -a "name=git state=present"
+
+ansible machine1 -i inventory/hosts -b -m git -a "repo=https://github.com/becloudready/prometheus_monitoring.git dest=/tmp version=HEAD"
