@@ -1,0 +1,3 @@
+webserver_port: 80
+display_message: Dynamic content test
+list_vars: one,two,three,four
