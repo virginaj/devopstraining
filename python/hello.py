@@ -1,6 +1,5 @@
 #!/usr/bin/python 
 
-
 def foo():
 	f = open('/var/log/kern.log')
 	lines = f.readlines()
@@ -12,6 +11,7 @@ def parse_log_file():
 		lines = f.readlines()
 	
 	f = open('ansible-node-log','w')
+
 	for line in lines:
     	f.write(line.replace('ansible-server','ansible-node'))
 	f.close()
