@@ -43,3 +43,28 @@ cd ansible/lab-05/
 ansible-playbook deploy-web-content.yml
 ```
 
+## lab-06
+
+Lab to create instances on AWS. 
+
+```
+cd ansible/lab-06/
+ansible-playbook create_ec2_instance.yml
+
+```
+To Terminate the instance ( You will need the instance id either from AWS console, or output from the create playbook)
+```
+cd ansible/lab-06/
+ansible-playbook terminate_ec2_instance.yml
+
+```
+
+## Lab -07
+
+Generate dynamic inventory and run playbooks
+```
+cd ansible/lab-07/
+python dynamic_inventory.py <aws-access-key> <aws-access-secret-key>
+
+```
+
