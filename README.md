@@ -43,7 +43,7 @@ cd ansible/lab-05/
 ansible-playbook deploy-web-content.yml
 ```
 
-## lab-06
+## lab-06 - Please don't push your AWS key on github
 
 Lab to create instances on AWS. 
 
@@ -59,7 +59,7 @@ ansible-playbook terminate_ec2_instance.yml
 
 ```
 
-## Lab -07
+## Lab -07 - Please don't push your AWS key on github
 
 Generate dynamic inventory and run playbooks
 ```
