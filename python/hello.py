@@ -7,13 +7,13 @@ def foo():
 		print int(line.split()[2].split(':')[2]) * 10
 		
 def parse_log_file():
-    with open('/home/ec2-user/messages') as f:
+	with open('/home/ec2-user/messages') as f:
 		lines = f.readlines()
 	
 	f = open('ansible-node-log','w')
 
 	for line in lines:
-    	f.write(line.replace('ansible-server','ansible-node'))
+	    	f.write(line.replace('ansible-server','ansible-node'))
 	f.close()
 
 
