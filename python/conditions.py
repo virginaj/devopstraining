@@ -6,9 +6,13 @@ second_array = [1,2,3]
 
 if number > 15:
     print "1"
+else:
+    print second_number
 
 if first_array:
     print "2"
+else:
+    print second_array
 
 if len(second_array) == 2:
     print "3"
