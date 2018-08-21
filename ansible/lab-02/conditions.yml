@@ -1,0 +1,18 @@
+tasks:
+command: /bin/false  register: result  ignore_errors: True
+
+command: /bin/something  when: result|failed
+
+command: /bin/something_else  when: result|succeeded
+
+command: /bin/still/something_else  when: result|skipped
+
+tasks:
+command: /bin/false  register: result  ignore_errors: True
+
+command: /bin/something  when: result|failed
+
+command: /bin/something_else  when: result|succeeded
+
+command: /bin/still/something_else  when: result|skipped
+
