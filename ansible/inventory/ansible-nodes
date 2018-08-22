@@ -1,8 +1,12 @@
 ansible-node ansible_ssh_user=ec2-user ansible_ssh_private_key_file=/home/ec2-user/ansible.pem ansible_ssh_host=172.31.4.180
+vagrant-node ansible_ssh_user=vagrant ansible_ssh_private_key_file=.vagrant/machines/default/virtualbox/private_key ansible_ssh_host=127.0.0.1 ansible_ssh_port=2200
 [all]
-ansible-node
-[webserver]
-ansible-node
-[appserver]
-ansible-node
+#ansible-node
+vagrant-node
+[webservers]
+#ansible-node
+vagrant-node
+[appservers]
+#ansible-node
+vagrant-node
 
