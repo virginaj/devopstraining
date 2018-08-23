@@ -48,6 +48,8 @@ ansible-playbook deploy-web-content.yml
 Lab to create instances on AWS. 
 
 ```
+sudo yum install python-pip -y
+sudo pip install boto
 cd ansible/lab-06/
 ansible-playbook create_ec2_instance.yml
 
