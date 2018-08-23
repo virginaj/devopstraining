@@ -70,3 +70,7 @@ python dynamic_inventory.py <aws-access-key> <aws-access-secret-key>
 
 ```
 
+## Q&A
+
+https://www.becloudready.com/forum/questions
+
