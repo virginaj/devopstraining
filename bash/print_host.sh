@@ -1,4 +1,4 @@
 #!/bin/bash
 
-hosname
+hostname
 /sbin/ifconfig eth0
