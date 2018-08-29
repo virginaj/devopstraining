@@ -9,3 +9,5 @@ for i in $output; do
         echo "Not found zero value = $i"
   fi
 done
+
+# Added some test
