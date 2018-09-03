@@ -1,6 +1,4 @@
-ansible-node ansible_ssh_user=ec2-user ansible_ssh_private_key_file=~/ansible.pem ansible_ssh_host=ec2-35-183-115-47.ca-central-1.compute.amazonaws.com
-[webservers]
-ansible-node
-[appservers]
-ansible-node
+node01 ansible_host=ec2-35-182-223-109.ca-central-1.compute.amazonaws.com
+node02 ansible_host=ec2-35-183-115-47.ca-central-1.compute.amazonaws.com
+node03 ansible_host=ec2-35-182-91-226.ca-central-1.compute.amazonaws.com
 
