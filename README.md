@@ -21,7 +21,7 @@ Just copy paste the instructions from lab-01 folder, it should work
 ### lab-02
 ```
 cd ansible/lab-02/
-ansible-playbook java-nginx.yml
+ansible-playbook java-httpd.yml
 ```
 ### lab-03
 
