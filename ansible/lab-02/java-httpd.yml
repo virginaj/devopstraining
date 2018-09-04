@@ -10,7 +10,7 @@
     service: name=httpd state=started enabled=yes
 
 
-- hosts: appserver
+- hosts: dbservers
   become: true
   tasks:
   - name: Install default-jdk
