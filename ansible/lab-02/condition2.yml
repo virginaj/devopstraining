@@ -1,0 +1,15 @@
+
+- hosts: webservers
+  
+  tasks:
+   
+    - name: Registering the output in result
+      command: /bin/true
+      register: result
+      ignore_errors: True
+
+
+
+
+
+      

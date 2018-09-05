@@ -15,7 +15,7 @@ ansible ansible-node -b -m git -a "repo=https://github.com/becloudready/promethe
 
 # Using Ansible modules in ad-hoc commands
 
-ansible -m service -a "name=nginx state=started enabled=yes" ansible-node --become
+
 ansible -m file -a "path=/home/ec2-user/usingAnsible state=directory" ansible-node --become
 ansible -m copy -a "src=Vagrantfile dest=/tmp" ansible-node --become
 

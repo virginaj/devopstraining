@@ -1,0 +1,36 @@
+- hosts: webservers  # Host or Group of Selections
+  become: true
+  vars:
+    httpd_port: 8080
+  tasks:
+  - name: Install httpd # Naming the task for debug purpose
+    yum: name=httpd state=present  # Using module ( doing the task )
+ 
+  - name: Copy a new "httpd.conf file into place, backing up the original if it differs from the copied version
+    copy:
+      src: /Users/localadmin/devopstraining/ansible/roles/apache2/files/httpd.conf
+      dest: /etc/httpd.conf
+      backup: yes
+      
+  - file:
+      path: /etc
+      owner: apache
+      group: apache
+      mode: 0644
+      recurse: true
+
+  - name: Start httpd
+    service: name=httpd state=started enabled=yes
+
+
+- hosts: dbservers  # Host or Group of Selections
+  become: true
+  vars:
+    httpd_port: 8080
+  tasks:
+  - name: Install mysql
+    yum: name=mariadb_server state=present 
+  - name: Start mysql
+    service: name=mariadb_server state=started enabled=yes
+
+
