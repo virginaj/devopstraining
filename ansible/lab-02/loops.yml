@@ -41,7 +41,10 @@
          - testuser1
          - testuser2
 
-    
+    - name: Ensure group "vagrant" exists
+      group:
+        name: vagrant
+        state: present
 
     - name: more complex items to add several users
       user:
