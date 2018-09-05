@@ -3,7 +3,7 @@
   yum: name=unzip state=present
 
 - name: Get static content
-  shell: ls -1 /var/www/html
+  shell: ls -l /var/www/html
   register: content
 
 - debug: var=content
@@ -13,5 +13,9 @@
   with_items: "{{content.stdout_lines}}"
 
 - name: Deploy static content
+<<<<<<< HEAD
   unarchive: src={{static_content_file_name}} dest=/var/www/html
   
+=======
+  unarchive: src=static_content.zip dest=/var/www/html
+>>>>>>> 341793c1b2acc9c5df1b3bce8c912e9ac1d5d480
