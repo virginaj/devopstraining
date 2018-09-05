@@ -4,17 +4,20 @@
   tasks:
    
     - name: Registering the output in result
-      command: /bin/true
+      command: echo "Hello Ansible"
       register: result
       ignore_errors: True
 
-    - name: Executing only if the result has failed state
-      command: /bin/something
-      when: result is failed
+    # - name: Executing only if the result has failed state
+    #   command: echo "Hello Ansible"
+    #   #when: result is failed
+
+    - debug:
+        var: result
 
     - name: Getting OS version if result was succeeded 
       command: cat /etc/redhat-release
-      when: result is succeeded
+      when: result is succeeded  # if result === succeed
 
     - name: Executing the task if result was skipped
       command: /bin/still/something_else
