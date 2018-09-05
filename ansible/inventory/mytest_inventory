@@ -1,0 +1,13 @@
+node04 ansible_host=ec2-18-208-218-250.compute-1.amazonaws.com
+node06 ansible_host=ec2-54-161-47-223.compute-1.amazonaws.com
+
+[webservers]
+node04
+
+[appservers]
+node06
+
+[RedHat]
+node04
+[ubuntu]
+node06

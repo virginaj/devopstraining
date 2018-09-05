@@ -1,0 +1,12 @@
+From becloudready Inc to Everyone: (09:05 AM)
+ ansible-playbook -i inventory/ansible-nodes lab-03/ansible-vars.yaml -l node01 
+From becloudready Inc to Everyone: (02:15 PM)
+ https://drive.google.com/open?id=1c4mVl8b3OfUHw8x4XAUHNG-e_AppQBah 
+From becloudready Inc to Everyone: (03:27 PM)
+ https://wiki.jenkins.io/display/JENKINS/Installing+Jenkins+on+Red+Hat+distributions https://gist.github.com/rtacconi/e233026e9870c2c27556 
+From becloudready Inc to Everyone: (03:49 PM)
+ https://docs.ansible.com/ansible/devel/modules/get_url_module.html 
+From becloudready Inc to Everyone: (03:55 PM)
+ # Example action to import a key from a url - rpm_key:     state: present     key: http://apt.sw.be/RPM-GPG-KEY.dag.txt https://docs.ansible.com/ansible/2.5/modules/rpm_key_module.html
+
+

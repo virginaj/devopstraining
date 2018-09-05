@@ -1,0 +1,6 @@
+---
+- hosts: appservers  # Host or Group of Selections
+  become: true
+  vars:
+    httpd_port: 8080
+

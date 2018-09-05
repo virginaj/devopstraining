@@ -1,0 +1,28 @@
+- name: Install java
+  yum: name=java state=present
+
+- name: Download jenkins.repo
+  get_url:
+    url: http://pkg.jenkins-ci.org/redhat/jenkins.repo
+    dest: /etc/yum.repos.d/jenkins.repo
+    mode: 0440
+
+# Example action to import a key from a url
+- rpm_key:
+    state: present
+    key: https://jenkins-ci.org/redhat/jenkins-ci.org.key
+
+
+- name: Install jenkins
+  yum: name=jenkins state=present
+
+- name: Install git
+  yum: name=git state=present
+
+- name: Start jenkins service
+  service: name=jenkins state=started
+
+  #chkconfig: jenkins on
+
+
+

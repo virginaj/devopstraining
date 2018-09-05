@@ -1,0 +1,29 @@
+- hosts: RedHat
+  gather_facts: false
+  name: Install httpd on this
+  tasks:
+   - yum: 
+      pkg: httpd
+      state: latest  
+      
+- hosts: ubuntu
+  gather_facts: false
+  name: Install httpd on this
+  tasks:
+   - apt: 
+      pkg: apache2
+      state: latest
+
+- hosts: all
+  - name: setting up the host
+    tasks:
+    - hostname: name="{{ inventory_hostname }}"
+      become: yes
+
+  - name: Display all variables/facts known for a host
+    debug:
+      var: hostvars[inventory_hostname]
+
+
+
+

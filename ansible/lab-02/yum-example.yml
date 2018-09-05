@@ -1,0 +1,23 @@
+- hosts: RedHat
+
+  tasks:
+  - name: Install new pkg
+    yum: 
+    pkg: {{ item }} 
+    state: installed
+    with_items:
+    - mlocate
+    - strace
+    - java-1.8.0-openjdk
+    - php
+
+  - name: Create files on loop
+    command: touch /home/ec2-user/{{ item }}
+    with_items:
+    - yelp
+    - google
+    - apple
+    - yahoo
+    - allstate
+
+
