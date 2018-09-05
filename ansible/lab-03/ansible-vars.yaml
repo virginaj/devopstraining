@@ -1,21 +1,53 @@
+# - hosts: node01
+#   tasks:
+#     # Example that prints the loopback address and gateway for each host
+#     - debug:
+#         msg: "System {{ inventory_hostname }} has uuid {{ ansible_product_uuid }}"
+
+#     - debug:
+#         msg: "System {{ inventory_hostname }} has gateway {{ ansible_default_ipv4.gateway }}"
+#       when: ansible_default_ipv4.gateway is defined
+
+#     - shell: /usr/bin/uptime
+#       register: result
+
+#     - debug:
+#         var: result
+ 
+#     - name: Display all variables/facts known for a host
+#       debug:
+#         var: hostvars[inventory_hostname]
+
 - hosts: webservers
+  gather_facts: false
+  name: Running group var debugs for webserver
   tasks:
-    # Example that prints the loopback address and gateway for each host
-    - debug:
-        msg: "System {{ inventory_hostname }} has uuid {{ ansible_product_uuid }}"
+   - debug: 
+      var: my_group_var
 
-    - debug:
-        msg: "System {{ inventory_hostname }} has gateway {{ ansible_default_ipv4.gateway }}"
-      when: ansible_default_ipv4.gateway is defined
+   - name: Checking appserver groupvars in Webserver Hosts
+     debug:
+      var: appserver_groupvars
+   - pause: seconds=2
 
-    - shell: /usr/bin/uptime
-      register: result
+   - debug:
+      var: webserver_groupvars
 
-    - debug:
-        var: result
-        
+- hosts: appservers
+  gather_facts: false
+  name: Running group var debugs for appservers
+  tasks:
+   - debug: 
+      var: my_group_var
+   - name: Checking Webservers groupvars in Appserver Hosts
+     debug:
+      var: appserver_groupvars
 
-    - name: Display all variables/facts known for a host
-      debug:
-        var: hostvars[inventory_hostname]
+   - pause: seconds=2
 
+   - debug:
+      var: webserver_groupvars
+
+
+
+  
