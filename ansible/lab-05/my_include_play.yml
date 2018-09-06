@@ -5,11 +5,24 @@
      shell: uptime
      register: cmd_output
 
+   - name: Check uptime of local mac os
+     shell: cat vars.yml
+     register: cmd_output
+
+   - debug: var=cmd_output
+
    - name: Debugging the output
      debug: var=cmd_output.stdout_lines
-     
+
+   - name: Debugging the output
+     debug: var=cmd_output.stdout_lines[0]
+
+   - name: Debugging the output
+     debug: var=cmd_output.start
+
+ 
+
 
   #  - name: Debugging the output
   #    debug: msg= {{ item.key, item.value }}
   #    with_dict: "{{ cmd_output }}"
-

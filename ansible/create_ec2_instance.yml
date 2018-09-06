@@ -19,4 +19,21 @@
     - name: Get theh Ip address
       debug: var=ec2.instances[0].public_dns_name
 
-  
+    - name: add host to group
+      add_host:  
+        name: "{{ ec2.instances[0].public_dns_name }}"
+        groups: ec2_hosts
+        ansible_hosts: "{{ ec2.instances[0].public_dns_name }}"
+        ansible_ssh_user: ec2-user
+        ansible_ssh_private_key_file: ~/Downloads/fullstack.pem
+
+    - name: wait for a while
+      pause: seconds=60
+
+    
+- name: install httpd
+  hosts: ec2_hosts
+  become: yes
+  roles:
+    - tomcat
+    

@@ -2,5 +2,13 @@
   hosts: localhost
   tasks:
    
-   - name: Debugging the output
-     debug: var=hostvars[inventory_hostname]
+   - name: Debugging the output var
+     debug: var=hostvars[inventory_hostname].ansible_en1
+
+
+   - name: Debugging the output var
+     debug: var=hostvars[inventory_hostname].ansible_en1.ipv4
+
+   - name: Debugging the output var
+     debug: var=hostvars[inventory_hostname].ansible_en1.flags 
+     
