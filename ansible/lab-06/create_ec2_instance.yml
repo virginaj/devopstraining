@@ -6,7 +6,7 @@
     - name: Launch instance
       ec2:
          key_name: "{{ lookup('env','AWS_KEY_PAIR') }}"
-         group: default
+         group: ansible-node
          instance_type: t2.micro
          image: ami-49f0762d
          wait: true
@@ -16,3 +16,7 @@
       register: ec2
     - name: Print all ec2 variables
       debug: var=ec2
+    - name: Get theh Ip address
+      debug: var=ec2.instances[0].public_dns_name
+
+  
