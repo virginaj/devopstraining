@@ -1,11 +1,8 @@
 ---
-- hosts: webserver
-  tasks:
-  - name: Stop and remove nginx
-    service: name=nginx state=stopped
-  - name: Remove nginx package
-    yum: name=nginx state=removed
-  ignore_errors: yes
+
+- include: my_include_play.yml
+
+#- import_playbook: my_import_play.yml
 
 
 - hosts: webserver

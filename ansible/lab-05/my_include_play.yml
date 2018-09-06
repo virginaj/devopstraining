@@ -1,0 +1,15 @@
+- name: Testing include stuff
+  hosts: localhost
+  tasks:
+   - name: Check uptime of local mac os
+     shell: uptime
+     register: cmd_output
+
+   - name: Debugging the output
+     debug: var=cmd_output.stdout_lines
+     
+
+  #  - name: Debugging the output
+  #    debug: msg= {{ item.key, item.value }}
+  #    with_dict: "{{ cmd_output }}"
+
